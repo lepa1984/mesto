@@ -1,0 +1,14 @@
+.card__heart {
+    position: absolute;
+    right: 20px;
+    bottom: 31px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.card__heart path {
+    transition: 0.3s;
+}
+
+.card__heart:hover {
+    opacity: 0.6;
+}

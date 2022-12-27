@@ -1,0 +1,39 @@
+.popup__close {
+    position: absolute;
+    cursor: pointer;
+    transition: 0.3s;
+    top: -40px;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    transform: rotate(45deg);
+}
+.popup__close:hover {
+    opacity: 0.6;
+}
+.popup__close::before,
+.popup__close::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 2px;
+    background: #ffffff;
+}
+.popup__close::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+@media (max-width: 769px) {
+    .popup__close {
+        right: 0;
+        top: -30px;
+        width: 20px;
+        height: 20px;
+    }
+    .popup__close::before,
+    .popup__close::after {
+        width: 20px;
+    }
+}

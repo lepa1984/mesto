@@ -10,8 +10,16 @@
     cursor: pointer;
     color: #ffffff;
     transition: 0.3s;
-    margin-top: 31px;
+    margin-top: 18px;
 }
 .form__button:hover {
     opacity: 0.8;
+}
+@media (max-width: 769px) {
+    .form__button {
+        margin-top: 15px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }

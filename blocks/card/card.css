@@ -3,6 +3,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    font-size: 0;
 }
 @media (max-width: 769px) {
     .card {

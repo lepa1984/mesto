@@ -4,9 +4,9 @@
     bottom: 31px;
     cursor: pointer;
     transition: 0.3s;
-}
-.card__heart path {
-    transition: 0.3s;
+    width: 22px;
+    height: 19px;
+    background: url(../../../images/heart.svg);
 }
 
 .card__heart:hover {

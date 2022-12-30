@@ -7,7 +7,7 @@
 }
 @media (max-width: 769px) {
     .profile__wrapper {
-        width: fit-content;
+        max-width: fit-content;
         margin: 0 auto 33px;
         padding-right: 28px;
         transform: translateX(10px);

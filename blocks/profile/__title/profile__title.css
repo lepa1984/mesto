@@ -2,7 +2,7 @@
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
-    margin: 0 0 16px;
+    margin: 0;
     color: #ffffff;
     position: relative;
     text-overflow: ellipsis;
@@ -13,6 +13,5 @@
     .profile__title {
         font-size: 27px;
         line-height: 33px;
-        margin-bottom: 10px;
     }
 }

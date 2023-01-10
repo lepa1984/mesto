@@ -1,6 +1,5 @@
 .profile__wrapper {
     position: relative;
-    padding-right: 42px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -9,7 +8,5 @@
     .profile__wrapper {
         max-width: fit-content;
         margin: 0 auto 33px;
-        padding-right: 28px;
-        transform: translateX(10px);
     }
 }

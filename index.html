@@ -31,74 +31,16 @@
                 </div>
                 <button type="button" class="profile__button-add"></button>
             </section>
-            <section class="cards">
-                <article class="card">
-                    <img
-                        src="./images/colisey.jpg"
-                        alt="Колизей"
-                        class="card__image"
-                    />
-                    <h2 class="card__title" title="Колизей">Колизей</h2>
-
-                    <button type="button" class="card__heart"></button>
-                </article>
-                <article class="card">
-                    <img
-                        src="./images/pisa.jpg"
-                        alt="Пиза - падающая башня"
-                        class="card__image"
-                    />
-                    <h2 class="card__title" title="Пиза - падающая башня">
-                        Пиза - падающая башня
-                    </h2>
-                    <button type="button" class="card__heart"></button>
-                </article>
-                <article class="card">
-                    <img
-                        src="./images/arhangelsk.jpg"
-                        alt="Архангельск"
-                        class="card__image"
-                    />
-                    <h2 class="card__title" title="Архангельск">Архангельск</h2>
-                    <button type="button" class="card__heart"></button>
-                </article>
-                <article class="card">
-                    <img
-                        src="./images/astrahan.jpg"
-                        alt="Астрахань"
-                        class="card__image"
-                    />
-                    <h2 class="card__title" title="Астрахань">Астрахань</h2>
-                    <button type="button" class="card__heart"></button>
-                </article>
-                <article class="card">
-                    <img
-                        src="./images/vityazevo.jpg"
-                        alt="Витязево"
-                        class="card__image"
-                    />
-                    <h2 class="card__title" title="Витязево">Витязево</h2>
-                    <button type="button" class="card__heart"></button>
-                </article>
-                <article class="card">
-                    <img
-                        src="./images/zmeyka.jpg"
-                        alt="Гора Змейка"
-                        class="card__image"
-                    />
-                    <h2 class="card__title" title="Гора Змейка">Гора Змейка</h2>
-                    <button type="button" class="card__heart"></button>
-                </article>
-            </section>
+            <section class="cards"></section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&#169; 2022 Алексей Попов</p>
         </footer>
-        <div class="popup">
+        <div class="popup popup-edit">
             <div class="popup__container">
                 <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="profile-form" class="form">
+                <form name="form-edit" class="form" id="form-edit">
                     <input
                         type="text"
                         class="form__input form__input_name_value"
@@ -109,10 +51,41 @@
                         class="form__input form__input_about_value"
                         name="about"
                     />
-                    <button type="submit" class="form__button">
+                    <button
+                        type="submit"
+                        class="form__button form__button-idit"
+                    >
                         Сохранить
                     </button>
                 </form>
+            </div>
+        </div>
+        <div class="popup popup-add">
+            <div class="popup__container">
+                <button type="button" class="popup__close"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form name="form-add" class="form" id="form-add">
+                    <input
+                        type="text"
+                        class="form__input form__input_location_value"
+                        name="location"
+                        placeholder="Название"
+                    />
+                    <input
+                        type="text"
+                        class="form__input form__input_link_value"
+                        name="link"
+                        placeholder="Ссылка на картинку"
+                    />
+                    <button type="submit" class="form__button form__button-add">
+                        Создать
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup-img">
+            <div class="popup__wrapper">
+                <button type="button" class="popup__close"></button>
             </div>
         </div>
         <script src="./scripts/index.js"></script>

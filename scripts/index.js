@@ -18,8 +18,8 @@ const linkInput = formAdd.querySelector(".form__input_link_value");
 const title = document.querySelector(".profile__title");
 const subtitle = document.querySelector(".profile__subtitle");
 const cardTemplate = document.querySelector("#card").content;
-const imgThumb = popupImg.querySelector(".card__image_thumb");
-const titleThumb = popupImg.querySelector(".card__title_thumb");
+const imgThumb = popupImg.querySelector(".popup__image_thumb");
+const titleThumb = popupImg.querySelector(".popup__title_thumb");
 const initialCards = [
     {
         name: "Колизей",

@@ -51,6 +51,7 @@ function createCards(link, name) {
     cardElement.querySelector(".card__image").src = `${link}`;
     cardElement.querySelector(".card__image").alt = `${name}`;
     cardElement.querySelector(".card__title").textContent = `${name}`;
+    cardElement.addEventListener("click", clickCards);
     return cardElement;
 }
 initialCards.forEach((item) => {
@@ -80,7 +81,6 @@ function openProfilePopup() {
 }
 function renderCard(link, name) {
     cardsContainer.prepend(createCards(link, name));
-    cardsContainer.addEventListener("click", clickCards);
 }
 function addCard(e) {
     e.preventDefault();

@@ -48,25 +48,38 @@ function closePopup(popup) {
 }
 function createCards(link, name) {
     const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+    const heart = cardElement.querySelector(".card__heart");
+    const cart = cardElement.querySelector(".card__delete");
+    const img = cardElement.querySelector(".card__image");
+
     cardElement.querySelector(".card__image").src = `${link}`;
     cardElement.querySelector(".card__image").alt = `${name}`;
     cardElement.querySelector(".card__title").textContent = `${name}`;
-    cardElement.addEventListener("click", clickCards);
+    heart.addEventListener("click", () => clickCardHeart(heart));
+    cart.addEventListener("click", () => clickCardDelete(cart));
+    img.addEventListener("click", () => clickCardOpenPopupImg(img));
+
     return cardElement;
 }
-initialCards.forEach((item) => {
-    renderCard(item.link, item.name);
-});
-
+function clickCardHeart(heart) {
+    heart.classList.toggle("card__heart_active");
+}
+function clickCardDelete(cart) {
+    cart.closest(".card").remove();
+}
+function clickCardOpenPopupImg(img) {
+    openPopup(popupImg);
+    imgThumb.setAttribute("src", img.getAttribute("src"));
+    imgThumb.setAttribute("alt", img.getAttribute("alt"));
+    titleThumb.textContent = img.getAttribute("alt");
+}
 function openPopup(popup) {
     popup.classList.add("popup_opened");
 }
-
 function clearValue(input1, input2) {
     input1.value = "";
     input2.value = "";
 }
-
 function handleFormSubmitEdit(e) {
     e.preventDefault();
     title.textContent = nameInput.value;
@@ -89,20 +102,9 @@ function addCard(e) {
     clearValue(locationInput, linkInput);
 }
 
-function clickCards(e) {
-    if (e.target.classList.contains("card__heart")) {
-        e.target.classList.toggle("card__heart_active");
-    }
-    if (e.target.classList.contains("card__delete")) {
-        e.target.closest(".card").remove();
-    }
-    if (e.target.classList.contains("card__image")) {
-        openPopup(popupImg);
-        imgThumb.setAttribute("src", e.target.getAttribute("src"));
-        imgThumb.setAttribute("alt", e.target.getAttribute("alt"));
-        titleThumb.textContent = e.target.getAttribute("alt");
-    }
-}
+initialCards.forEach((item) => {
+    renderCard(item.link, item.name);
+});
 
 openPopupProfile.addEventListener("click", openProfilePopup);
 

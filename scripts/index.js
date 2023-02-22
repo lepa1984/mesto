@@ -75,7 +75,18 @@ function clickCardOpenPopupImg(img) {
 }
 function openPopup(popup) {
     popup.classList.add("popup_opened");
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            closePopup(popup);
+        }
+    });
+    addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closePopup(popup);
+        }
+    });
 }
+
 function clearValue(input1, input2) {
     input1.value = "";
     input2.value = "";
@@ -90,6 +101,9 @@ function handleFormSubmitEdit(e) {
 function openProfilePopup() {
     nameInput.value = title.textContent;
     jobInput.value = subtitle.textContent;
+    if (nameInput.value && jobInput.value) {
+        document.querySelector(".form__button-edit").disabled = false;
+    }
     openPopup(popupEdit);
 }
 function renderCard(link, name) {

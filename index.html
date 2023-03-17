@@ -23,13 +23,18 @@
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
                         <button
                             type="button"
+                            aria-label="profile"
                             class="profile__button-edit"
                         ></button>
                     </div>
 
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button type="button" class="profile__button-add"></button>
+                <button
+                    type="button"
+                    aria-label="add-card"
+                    class="profile__button-add"
+                ></button>
             </section>
             <section class="cards"></section>
         </main>
@@ -38,7 +43,11 @@
         </footer>
         <div class="popup popup-edit">
             <div class="popup__container">
-                <button type="button" class="popup__close"></button>
+                <button
+                    type="button"
+                    aria-label="close"
+                    class="popup__close"
+                ></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="form-edit" class="form" id="form-edit">
                     <label class="popup__label">
@@ -50,6 +59,7 @@
                             required
                             minlength="2"
                             maxlength="40"
+                            placeholder="Имя"
                         />
                         <span class="form__input-error name-input-error"
                             >Вы пропустили это поле.</span
@@ -64,6 +74,7 @@
                             required
                             minlength="2"
                             maxlength="200"
+                            placeholder="О себе"
                         />
                         <span class="form__input-error about-input-error"
                             >Вы пропустили это поле.</span
@@ -80,7 +91,11 @@
         </div>
         <div class="popup popup-add">
             <div class="popup__container">
-                <button type="button" class="popup__close"></button>
+                <button
+                    type="button"
+                    aria-label="close"
+                    class="popup__close"
+                ></button>
                 <h2 class="popup__title">Новое место</h2>
                 <form name="form-add" class="form" id="form-add">
                     <label class="popup__label">
@@ -120,7 +135,11 @@
         </div>
         <div class="popup popup-img">
             <div class="popup__wrapper">
-                <button type="button" class="popup__close"></button>
+                <button
+                    type="button"
+                    aria-label="close"
+                    class="popup__close"
+                ></button>
                 <img
                     class="popup__image popup__image_thumb"
                     src="./images/arhangelsk.jpg"
@@ -134,7 +153,11 @@
                 <div class="card__delete"></div>
                 <img src="./images/arhangelsk.jpg" alt="" class="card__image" />
                 <h2 class="card__title"></h2>
-                <button type="button" class="card__heart"></button>
+                <button
+                    type="button"
+                    aria-label="heart"
+                    class="card__heart"
+                ></button>
             </article>
         </template>
 

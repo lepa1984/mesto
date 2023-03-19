@@ -35,7 +35,7 @@ class Card {
     }
 
     _clickCardOpenPopupImg() {
-        this._openPopupImage();
+        this._openPopupImage(this._text, this._imageUrl);
     }
     _clickCardDelete() {
         this._element.remove();

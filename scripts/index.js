@@ -17,7 +17,6 @@ const title = document.querySelector(".profile__title");
 const subtitle = document.querySelector(".profile__subtitle");
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-
 const initialCards = [
     {
         name: "Колизей",
@@ -51,7 +50,8 @@ const objectValidation = {
     inputErrorClass: "form__input_type_error",
     errorClass: "form__input-error_active",
 };
-
+const formValidatorEdit = new FormValidator(objectValidation, formEdit);
+const formValidatorAdd = new FormValidator(objectValidation, formAdd);
 function closePopup(popup) {
     popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", closeByEscape);
@@ -86,11 +86,7 @@ function handleFormSubmitEdit(e) {
 function openProfilePopup() {
     nameInput.value = title.textContent;
     jobInput.value = subtitle.textContent;
-
-    if (nameInput.value && jobInput.value) {
-        const buttonDisabled = new FormValidator(objectValidation, formEdit);
-        buttonDisabled.toggleButtonState();
-    }
+    formValidatorEdit.toggleButtonState();
     openPopup(popupEdit);
 }
 function renderCard(link, name) {
@@ -106,19 +102,16 @@ function addCard(e) {
     renderCard(linkInput.value, locationInput.value);
     closePopup(popupAdd);
     e.target.reset();
-    const buttonDisabled = new FormValidator(objectValidation, formAdd);
-    buttonDisabled.toggleButtonState();
+    formValidatorAdd.toggleButtonState();
 }
-function openPopupImage() {
+function openPopupImage(title, imageUrl) {
     openPopup(popupImg);
-    imgThumb.setAttribute("src", this._cardImage.getAttribute("src"));
-    imgThumb.setAttribute("alt", this._cardImage.getAttribute("alt"));
-    titleThumb.textContent = this._cardImage.getAttribute("alt");
+    imgThumb.setAttribute("src", imageUrl);
+    imgThumb.setAttribute("alt", title);
+    titleThumb.textContent = title;
 }
-const formValidatorEdit = new FormValidator(objectValidation, formEdit);
-formValidatorEdit.enableValidation();
 
-const formValidatorAdd = new FormValidator(objectValidation, formAdd);
+formValidatorEdit.enableValidation();
 formValidatorAdd.enableValidation();
 
 initialCards.forEach((item) => {

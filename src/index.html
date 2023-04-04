@@ -4,17 +4,21 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>Место</title>
-        <link rel="stylesheet" href="pages/index.css" />
     </head>
     <body class="page">
         <header class="header">
-            <img src="./images/logo.svg" alt="Логотип" class="logo" />
+            <img
+                src="<%=require('./images/logo.svg')%>"
+                alt="Логотип"
+                class="logo"
+            />
         </header>
         <main class="main">
             <section class="profile">
                 <img
-                    src="./images/custo.jpg"
+                    src="<%=require('./images/custo.jpg')%>"
                     alt="Жак-Ив Кусто"
                     class="profile__avatar"
                 />
@@ -39,7 +43,9 @@
             <section class="cards"></section>
         </main>
         <footer class="footer">
-            <p class="footer__copyright">&#169; 2022 Алексей Попов</p>
+            <p class="footer__copyright">
+                &#169; <span>2022</span> Алексей Попов
+            </p>
         </footer>
         <div class="popup popup-edit">
             <div class="popup__container">
@@ -142,7 +148,7 @@
                 ></button>
                 <img
                     class="popup__image popup__image_thumb"
-                    src="./images/arhangelsk.jpg"
+                    src="<%=require('./images/arhangelsk.jpg')%>"
                     alt=""
                 />
                 <h3 class="popup__title popup__title_thumb"></h3>
@@ -151,7 +157,11 @@
         <template id="card">
             <article class="card">
                 <div class="card__delete"></div>
-                <img src="./images/arhangelsk.jpg" alt="" class="card__image" />
+                <img
+                    src="<%=require('./images/arhangelsk.jpg')%>"
+                    alt=""
+                    class="card__image"
+                />
                 <h2 class="card__title"></h2>
                 <button
                     type="button"
@@ -160,7 +170,5 @@
                 ></button>
             </article>
         </template>
-
-        <script src="./scripts/index.js" type="module"></script>
     </body>
 </html>

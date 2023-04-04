@@ -8,6 +8,7 @@
 -   JavaScript
 -   ООП
 -   ES6 Modules
+-   Webpack
 
 ### планы на развитие проекта
 

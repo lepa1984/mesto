@@ -1,6 +1,5 @@
 name: mesto
 safe: true
-language: JavaScript
 extensions:
   - .js
   - ._js
@@ -28,3 +27,5 @@ extensions:
   - .xsjs
   - .xsjslib
 packageManager: NPM
+languages:
+  - JavaScript

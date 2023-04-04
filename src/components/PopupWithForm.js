@@ -3,12 +3,13 @@ class PopupWithForm extends Popup {
     constructor(popupSelector, submitCallback) {
         super(popupSelector);
         this._submitCallback = submitCallback;
-        this._form = this._popup.querySelector(".form");
-        this.inputsForms = this._form.querySelectorAll(".form__input");
+        this._form = document
+            .querySelector(popupSelector)
+            .querySelector(".form");
     }
     _getInputValues() {
         const values = {};
-
+        this.inputsForms = this._form.querySelectorAll(".form__input");
         this.inputsForms.forEach((input) => {
             values[input.name] = input.value;
         });

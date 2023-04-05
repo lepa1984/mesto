@@ -22,17 +22,17 @@ import {
 const formValidatorEdit = new FormValidator(objectValidation, formEdit);
 const formValidatorAdd = new FormValidator(objectValidation, formAdd);
 const addPopup = new PopupWithForm(".popup-add", addCard);
-const editPopup = new PopupWithForm(".popup-edit", handleFormSubmitEdit);
+const editPopup = new PopupWithForm(".popup-edit", handleSubmit);
 const imgPopup = new PopupWithImage(".popup-img");
 const userInfo = new UserInfo({
     nameSelector: ".profile__title",
     aboutSelector: ".profile__subtitle",
 });
 
-function handleFormSubmitEdit() {
+function handleSubmit(input) {
     userInfo.setUserInfo({
-        userName: nameInput.value,
-        userAbout: jobInput.value,
+        userName: input.name,
+        userAbout: input.about,
     });
 }
 function openProfilePopup() {
@@ -65,10 +65,10 @@ const cards = new Section(
 
 cards.renderItems();
 
-function addCard() {
+function addCard(input) {
     const addData = {
-        name: locationInput.value,
-        link: linkInput.value,
+        name: input.location,
+        link: input.link,
     };
     renderCard(addData);
 }

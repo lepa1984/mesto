@@ -17,11 +17,13 @@
         </header>
         <main class="main">
             <section class="profile">
-                <img
-                    src="<%=require('./images/custo.jpg')%>"
-                    alt="Жак-Ив Кусто"
-                    class="profile__avatar"
-                />
+                <div class="profile__avatar-wrapper">
+                    <img
+                        src="<%=require('./images/custo.jpg')%>"
+                        alt="Жак-Ив Кусто"
+                        class="profile__avatar"
+                    />
+                </div>
                 <div class="profile__wrapper">
                     <div class="profile__inner">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -154,6 +156,55 @@
                 <h3 class="popup__title popup__title_thumb"></h3>
             </div>
         </div>
+        <div class="popup popup-delete">
+            <div class="popup__container">
+                <button
+                    type="button"
+                    aria-label="close"
+                    class="popup__close"
+                ></button>
+                <h2 class="popup__title">Вы уверены?</h2>
+                <form name="form-delete" class="form" id="form-delete">
+                    <button
+                        type="submit"
+                        class="form__button form__button-delete"
+                    >
+                        Да
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup-avatar">
+            <div class="popup__container">
+                <button
+                    type="button"
+                    aria-label="close"
+                    class="popup__close"
+                ></button>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <form name="form-avatar" class="form" id="form-avatar">
+                    <label class="popup__label">
+                        <input
+                            type="url"
+                            class="form__input form__input_link_value"
+                            name="link"
+                            placeholder="Ссылка на аватар"
+                            id="avatar-input"
+                            required
+                        />
+                        <span class="form__input-error avatar-input-error"
+                            >Введите адрес</span
+                        ></label
+                    >
+                    <button
+                        type="submit"
+                        class="form__button form__button-avatar"
+                    >
+                        Сохранить
+                    </button>
+                </form>
+            </div>
+        </div>
         <template id="card">
             <article class="card">
                 <div class="card__delete"></div>
@@ -163,11 +214,14 @@
                     class="card__image"
                 />
                 <h2 class="card__title"></h2>
-                <button
-                    type="button"
-                    aria-label="heart"
-                    class="card__heart"
-                ></button>
+                <div class="card__inner">
+                    <button
+                        type="button"
+                        aria-label="heart"
+                        class="card__heart"
+                    ></button>
+                    <div class="card__count">10</div>
+                </div>
             </article>
         </template>
     </body>

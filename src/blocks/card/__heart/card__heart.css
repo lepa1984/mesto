@@ -6,10 +6,8 @@
     height: 19px;
     background: url(../../../images/heart.svg);
     background-repeat: no-repeat;
-    grid-area: 2 / 2 / 3 / 3;
-    align-self: center;
-    justify-self: end;
-    margin-right: 20px;
+    margin-bottom: 3px;
+
     background-color: transparent;
     border: none;
 }

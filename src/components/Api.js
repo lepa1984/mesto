@@ -3,20 +3,18 @@ export default class Api {
         this.baseUrl = baseUrl;
         this.headers = headers;
     }
-
-    setId(id) {
-        this.id = id;
+    _getResponseData(res) {
+        if (!res.ok) {
+            return Promise.reject(`Ошибка: ${res.status}`);
+        }
+        return res.json();
     }
-
     async getCards() {
         const res = await fetch(`${this.baseUrl}/cards`, {
             method: "GET",
             headers: this.headers,
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async getUserInfo() {
@@ -24,10 +22,7 @@ export default class Api {
             method: "GET",
             headers: this.headers,
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async newCard({ name, link }) {
@@ -39,10 +34,7 @@ export default class Api {
                 link,
             }),
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async deleteCards(cardId) {
@@ -50,14 +42,10 @@ export default class Api {
             method: "DELETE",
             headers: this.headers,
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async updateUserInfo(data) {
-        console.log(data);
         const res = await fetch(`${this.baseUrl}/users/me`, {
             method: "PATCH",
             headers: this.headers,
@@ -66,10 +54,7 @@ export default class Api {
                 about: data.about,
             }),
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async updateAvatarInfo(data) {
@@ -80,10 +65,7 @@ export default class Api {
                 avatar: data.link,
             }),
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async addLike(cardId) {
@@ -91,10 +73,7 @@ export default class Api {
             method: "PUT",
             headers: this.headers,
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 
     async removeLike(cardId) {
@@ -102,9 +81,6 @@ export default class Api {
             method: "DELETE",
             headers: this.headers,
         });
-        if (res.ok) {
-            return res.json();
-        }
-        return await Promise.reject(`Error ${res.status}`);
+        return this._getResponseData(res);
     }
 }

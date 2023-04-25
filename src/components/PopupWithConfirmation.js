@@ -18,7 +18,6 @@ class PopupWithConfirmation extends Popup {
             evt.preventDefault();
             this._handleSubmit({ id: this._id, cards: this._cards });
         });
-        // this.close();
     }
 
     open(id, cards) {

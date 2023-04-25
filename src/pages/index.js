@@ -35,7 +35,7 @@ const addPopup = new PopupWithForm(".popup-add", addCard);
 const editPopup = new PopupWithForm(".popup-edit", handleSubmit);
 const editAvatar = new PopupWithForm(".popup-avatar", handleAvatarSubmit);
 const imgPopup = new PopupWithImage(".popup-img");
-const createPopupWithConfirmation = new PopupWithConfirmation(".popup-delete");
+const popupDelete = new PopupWithConfirmation(".popup-delete");
 const userInfo = new UserInfo({
     nameSelector: ".profile__title",
     aboutSelector: ".profile__subtitle",
@@ -55,7 +55,7 @@ Promise.all([api.getUserInfo(), api.getCards()])
         cards.renderItems(card);
     })
     .catch((err) => console.log(err));
-let cards = new Section(
+const cards = new Section(
     {
         renderer: (item) => {
             cards.addItem(createNewCard(item));
@@ -109,17 +109,17 @@ const createNewCard = (data) => {
             userId: userId,
             handleCardClick,
             handleDeleteCard: (cardId) => {
-                createPopupWithConfirmation.open();
-                createPopupWithConfirmation.renderLoading(true);
-                createPopupWithConfirmation.setSubmitHandler(() => {
+                popupDelete.open();
+                popupDelete.renderLoading(true);
+                popupDelete.setSubmitHandler(() => {
                     api.deleteCards(cardId)
                         .then(() => {
-                            createPopupWithConfirmation.close();
+                            popupDelete.close();
                             card.deleteCard();
                         })
                         .catch((err) => console.log(err))
                         .finally(() => {
-                            createPopupWithConfirmation.renderLoading(false);
+                            popupDelete.renderLoading(false);
                         });
                 });
             },
@@ -143,7 +143,7 @@ const createNewCard = (data) => {
     return card.generateCard();
 };
 
-createPopupWithConfirmation.setEventListeners();
+popupDelete.setEventListeners();
 const renderCard = (item) => {
     cards.prependItem(createNewCard(item));
 };
@@ -180,8 +180,3 @@ avatar.addEventListener("click", function () {
     editAvatar.open();
     formValidatorAvatar.toggleButtonState();
 });
-
-// получаем год
-document.querySelector(
-    ".footer__copyright span"
-).textContent = `${new Date().getFullYear()}`;
